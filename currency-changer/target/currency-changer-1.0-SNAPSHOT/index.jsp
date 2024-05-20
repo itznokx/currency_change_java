@@ -4,6 +4,7 @@
 	</head>
 	<body>
 		<h1>Currency Converter</h1>
+		<h3><%= request.getRemoteAddr()%></h3>
 		<br><br>
 		<label> Actual currency value
 		<select id="inputCurrency" name="currencyList">
@@ -16,6 +17,5 @@
 			<option value="" disabled selected> Select your desired currency  </option>
 		</select>
 		</label>
-		<script src="select.js"></script>	
 	</body>
 </html>
