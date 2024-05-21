@@ -10,11 +10,12 @@ import javax.money.convert.CurrencyConversion;
 import javax.money.convert.ExchangeRateProvider;
 
 public class CurrencyHeader{
-	public static void currencyConverter (String actualCurrency,double amountToConvert,String desiredCurrency) {
+	public static String currencyConverter (String actualCurrency,double amountToConvert,String desiredCurrency) {
 		MonetaryAmount currencyActualMoney = Monetary.getDefaultAmountFactory().setCurrency(actualCurrency).setNumber(amountToConvert).create();
-		ExchangeRateProvider rateProvider = MonetaryConversions.getExchangeRateProvider("IMF");
+		ExchangeRateProvider rateProvider = MonetaryConversions.getExchangeRateProvider("ECB");
 		CurrencyConversion conversion = rateProvider.getCurrencyConversion(desiredCurrency);
 		MonetaryAmount convertedValor  = currencyActualMoney.with(conversion);
+		return (convertedValor.toString());
 	}
 
 }
