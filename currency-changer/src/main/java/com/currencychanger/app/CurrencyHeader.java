@@ -3,7 +3,9 @@ package CurrencyHeader;
 import java.lang.Object;
 import java.util.Locale;
 import javax.money.*;
-import javax.money.Monetary;
+import javax.money.convert.MonetaryConversions;
+import javax.money.convert.ExchangeRate;
+import javax.money.convert.RateType;
 import javax.money.convert.CurrencyConversion;
 import javax.money.convert.ExchangeRateProvider;
 
