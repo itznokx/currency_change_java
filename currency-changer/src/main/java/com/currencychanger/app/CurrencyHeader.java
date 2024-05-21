@@ -3,6 +3,10 @@ package CurrencyHeader;
 import java.lang.Object;
 import java.util.Locale;
 import javax.money.*;
+import javax.money.Monetary;
+import javax.money.convert.CurrencyConversion;
+import javax.money.convert.ExchangeRateProvider;
+
 public class CurrencyHeader{
 	public static void currencyConverter (String actualCurrency,double amountToConvert,String desiredCurrency) {
 		MonetaryAmount currencyActualMoney = Monetary.getDefaultAmountFactory().setCurrency(actualCurrency).setNumber(amountToConvert).create();
