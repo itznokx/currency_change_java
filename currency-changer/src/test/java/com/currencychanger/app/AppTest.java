@@ -16,6 +16,6 @@ public class AppTest
     @Test
     public void shouldAnswerWithTrue()
     {
-		System.out.println(CurrencyHeader.currencyConverter("USD",1.0,"BRL"));
+		System.out.println(CurrencyHeader.currencyConverter("EUR",10.0,"BRL"));
     }
 }
