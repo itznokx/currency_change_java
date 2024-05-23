@@ -1,5 +1,7 @@
 package CurrencyHeader;
 
+import java.util.HashSet;
+import java.util.Currency;
 import java.lang.Object;
 import java.util.Locale;
 import javax.money.*;
@@ -17,6 +19,9 @@ public class CurrencyHeader{
 		MonetaryAmount convertedValor  = currencyActualMoney.with(conversion);
 		return (convertedValor.toString());
 	}
-
+	public HashSet<Currency> getCurrencies (){
+		HashSet<Currency> allCurrencies = new HashSet<Currency> ();
+		return allCurrencies;
+	}
 }
 
