@@ -17,5 +17,8 @@
 			<option value="" disabled selected> Select your desired currency  </option>
 		</select>
 		</label>
+		<label>
+			<button type="button">Calculate</button>
+		</label>
 	</body>
 </html>
