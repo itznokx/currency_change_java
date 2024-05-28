@@ -1,5 +1,6 @@
 package CurrencyHeader;
 
+import java.util.Iterator;
 import java.util.Set;
 import java.util.HashSet;
 import java.util.Currency;
@@ -21,19 +22,14 @@ public class CurrencyHeader{
 		return (convertedValor.toString());
 	}
 	public static Set<Currency> getCurrencies (){
-		Set<Currency> allCurrencies = new HashSet<Currency> ();
-		Locale[] allLocales = Locale.getAvailableLocales();
+		Set<Currency> allCurrencies = Currency.getAvailableCurrencies();
 		try{
-			for (Locale iter : allLocales){
-				Currency auxCurrency = Currency.getInstance(iter);
-				if (auxCurrency!=null){
-					allCurrencies.add(auxCurrency);
-				}
+			for (Currency iter: allCurrencies){
+				System.out.println(iter.getCurrencyCode());
 			}
 		}
 		catch(Exception e){
-				System.out.println(e.toString());
-			}
+		}
 		return allCurrencies;	
 	}	
 }
