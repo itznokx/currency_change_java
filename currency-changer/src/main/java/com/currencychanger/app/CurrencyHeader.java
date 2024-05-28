@@ -2,7 +2,8 @@ package CurrencyHeader;
 
 import java.util.Iterator;
 import java.util.Set;
-import java.util.HashSet;
+import java.util.Collections;
+import java.util.ArrayList;
 import java.util.Currency;
 import java.lang.Object;
 import java.util.Locale;
@@ -21,16 +22,19 @@ public class CurrencyHeader{
 		MonetaryAmount convertedValor  = currencyActualMoney.with(conversion);
 		return (convertedValor.toString());
 	}
-	public static Set<Currency> getCurrencies (){
+	public static ArrayList<String> getCurrencies (){
+
 		Set<Currency> allCurrencies = Currency.getAvailableCurrencies();
+		ArrayList<String> sortedCurrencies = new ArrayList<String>();
 		try{
 			for (Currency iter: allCurrencies){
-				System.out.println(iter.getCurrencyCode());
+				sortedCurrencies.add(iter.getCurrencyCode());
 			}
 		}
 		catch(Exception e){
 		}
-		return allCurrencies;	
+		Collections.sort(sortedCurrencies);
+		return sortedCurrencies;	
 	}	
 }
 

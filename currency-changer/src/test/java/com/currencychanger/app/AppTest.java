@@ -19,7 +19,10 @@ public class AppTest
     public void shouldAnswerWithTrue()
     {
 		 //Put the tests here (see Junit.Test documentation)
-		Set<Currency> test = CurrencyHeader.getCurrencies();
-		System.out.println("Test end.");
+		List<String> test = CurrencyHeader.getCurrencies();
+		for (String iter : test){
+			System.out.println(iter);
+		}
+		
     }
 }
