@@ -16,6 +16,6 @@ public class AppTest
     @Test
     public void shouldAnswerWithTrue()
     {
-		System.out.println(CurrencyHeader.currencyConverter("EUR",10.0,"BRL"));
+		 //Put the tests here (see Junit.Test documentation)
     }
 }
