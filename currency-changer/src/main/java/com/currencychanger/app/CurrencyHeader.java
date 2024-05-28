@@ -32,6 +32,7 @@ public class CurrencyHeader{
 			}
 		}
 		catch(Exception e){
+			System.out.println(e.toString());
 		}
 		Collections.sort(sortedCurrencies);
 		return sortedCurrencies;	
