@@ -9,6 +9,7 @@
 		<label> Actual currency value
 		<select id="inputCurrency" name="currencyList">
 			<option value="" disabled selected> Select your actual currency  </option>
+		
 		</select>
 		</label>
 		<br><br><br>
