@@ -13,7 +13,7 @@
 		</label>
 		<br><br><br>
 		<label> To currency value
-		<select id="inputToCurrency" name="currencyList">
+		<select id="inputToCurrenty" name="currencyList">
 			<option value="" disabled selected> Select your desired currency  </option>
 		</select>
 		</label>
