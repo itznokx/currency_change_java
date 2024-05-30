@@ -1,6 +1,7 @@
 package com.currencychanger.app;
 
 import java.util.*;
+import WebFunctions.*;
 import CurrencyHeader.*;
 import static org.junit.Assert.assertTrue;
 
@@ -18,10 +19,6 @@ public class AppTest
     public void shouldAnswerWithTrue()
     {
 		 //Put the tests here (see Junit.Test documentation)
-		List<String> test = CurrencyHeader.getCurrencies();
-		for (String iter : test){
-			System.out.println(iter);
-		}
 		
     }
 }

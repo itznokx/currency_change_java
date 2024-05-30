@@ -9,6 +9,7 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import java.io.File;
 import java.io.IOException;
+
 public class WebFunctions {
 	Document doc;
 
@@ -23,7 +24,12 @@ public class WebFunctions {
 		ArrayList<String> currencyList = CurrencyHeader.getCurrencies();
 		Element inputCurrency = doc.getElementById("inputCurrency");
 		Element inputToCurrency = doc.getElementById("inputToCurrency");
-
+		ArrayList<String> currencies = new ArrayList<String>();
+		currencies = CurrencyHeader.getCurrencies();
+		for (String iter: currencies){
+			inputCurrency.appendElement("option").attr("value",iter).attr("text",iter);
+			inputToCurrency.appendElement("option").attr("value",iter).attr("text",iter);
+		}
 	}
 
 }
