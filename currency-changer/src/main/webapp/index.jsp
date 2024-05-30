@@ -5,6 +5,8 @@
 <%@ page import ="org.jsoup.select.Elements"%>
 <%@ page import="java.util.Date"%>
 <%@ page import="java.io.File,java.io.IOException" %>
+<%@ page import="CurrencyHeader.*"%>
+<%@ page import="WebFunctions.*"%>
 <html> 
 	<head>
 	<title>Currency Converter</title>
