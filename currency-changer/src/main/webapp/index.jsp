@@ -1,12 +1,4 @@
-<%@ page import ="org.jsoup.Jsoup"%>
-<%@ page import ="org.jsoup.helper.*"%>
-<%@ page import ="org.jsoup.nodes.Document"%>
-<%@ page import ="org.jsoup.nodes.Element"%>
-<%@ page import ="org.jsoup.select.Elements"%>
 <%@ page import="java.util.Date"%>
-<%@ page import="java.io.File,java.io.IOException" %>
-<%@ page import="CurrencyHeader.*"%>
-<%@ page import="WebFunctions.*"%>
 <html> 
 	<head>
 	<title>Currency Converter</title>
@@ -26,6 +18,7 @@
 			<option value="" disabled selected> Select your actual currency  </option>
 		</select>
 		</label>
+		<%request.%>
 		<br><br><br>
 		<label> To currency value
 		<select id="inputToCurrency" name="currencyList">
@@ -35,7 +28,6 @@
 		<label>
 			<button type="button">Calculate</button>
 		</label>
-		
 	</body>
 	
 </html>

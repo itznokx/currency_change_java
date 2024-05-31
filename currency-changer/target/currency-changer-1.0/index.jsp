@@ -5,6 +5,9 @@
 <%@ page import ="org.jsoup.select.Elements"%>
 <%@ page import="java.util.Date"%>
 <%@ page import="java.io.File,java.io.IOException" %>
+<%@ page import="CurrencyHeader.*"%>
+<%@ page import="WebFunctions.*"%>
+<%@ page import="RandomGenericClss.*"%>
 <html> 
 	<head>
 	<title>Currency Converter</title>
@@ -33,7 +36,6 @@
 		<label>
 			<button type="button">Calculate</button>
 		</label>
-		
 	</body>
 	
 </html>
