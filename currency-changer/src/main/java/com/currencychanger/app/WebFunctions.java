@@ -20,16 +20,4 @@ public class WebFunctions {
 		}
 		
 	}
-	public void populateSelectBox(){
-		ArrayList<String> currencyList = CurrencyHeader.getCurrencies();
-		Element inputCurrency = doc.getElementById("inputCurrency");
-		Element inputToCurrency = doc.getElementById("inputToCurrency");
-		ArrayList<String> currencies = new ArrayList<String>();
-		currencies = CurrencyHeader.getCurrencies();
-		for (String iter: currencies){
-			inputCurrency.appendElement("option").attr("value",iter).attr("text",iter);
-			inputToCurrency.appendElement("option").attr("value",iter).attr("text",iter);
-		}
-	}
-
 }

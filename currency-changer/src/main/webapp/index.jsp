@@ -18,7 +18,6 @@
 			<option value="" disabled selected> Select your actual currency  </option>
 		</select>
 		</label>
-		<%request.%>
 		<br><br><br>
 		<label> To currency value
 		<select id="inputToCurrency" name="currencyList">
@@ -26,7 +25,10 @@
 		</select>
 		</label>
 		<label>
-			<button type="button">Calculate</button>
+			<input type="submit" value="Calculate">
+		</label>
+		<label>
+			<h3 id="resultado">NULL</h3>
 		</label>
 	</body>
 	

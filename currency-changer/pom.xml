@@ -21,6 +21,12 @@
   </properties>
 
   <dependencies>
+   <dependency>
+     <groupId>jakarta.servlet</groupId>
+     <artifactId>jakarta.servlet-api</artifactId>
+     <version>4.0.4</version>
+     <scope>provided</scope>
+   </dependency>
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
@@ -141,25 +147,11 @@
 		  	<configuration>
 		  	<archive>
 		  		<manifest>
-		  			<mainClass>com.currencychanger.App</mainClass>
+		  			<mainClass>br.servlets.currencychanger</mainClass>
 		  		</manifest>
 		  	</archive>
 		  	</configuration>
 		  </plugin>
-		<plugin>
-		<groupId>org.apache.tomcat.maven</groupId>
-		<artifactId>tomcat6-maven-plugin</artifactId>
-		<version>2.2</version>
-		</plugin>
-		<plugin>
-		<groupId>org.apache.tomcat.maven</groupId>
-		<artifactId>tomcat7-maven-plugin</artifactId>
-		<version>2.2</version>
-		<configuration>
-			<url>http://localhost:8080/manager</url>
-			<server>localhost</server>
-		</configuration>
-		</plugin>
 	 </plugins>
     </pluginManagement>
   </build>
