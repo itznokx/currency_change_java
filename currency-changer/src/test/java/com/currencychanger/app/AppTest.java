@@ -1,7 +1,6 @@
 package com.currencychanger.app;
 
 import java.util.*;
-import WebFunctions.*;
 import CurrencyHeader.*;
 import static org.junit.Assert.assertTrue;
 
