@@ -32,6 +32,12 @@ class CCServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest req,
 						 HttpServletResponse res)
 	throws ServletException,IOException{
-		//TODO
+		String currencyActual = req.getParameter("currencyList");
+		String currencyDesired = req.getParameter("currencyToList");
+		Double currencyValor = Double.valueOf(req.getParameter("inputValor"));
+		String finalValor = CurrencyHeader.currencyConverter(curreencyActual,
+																			  currencyValor,
+																			  currencyDesired);
+
 	}
 }

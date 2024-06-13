@@ -7,18 +7,18 @@ pageEncoding="ISO-8859-1"%>
 	<title>Currency Converter</title>
 	</head>
 	<body>
-	 <form action="CurrencyChanger.do" method="POST">
+	 <form action="CurrencyChanger" method="POST">
 		<h2>Currency Converter</h2>
 		<br><br>
 		<label> Actual currency value
 		<select id="inputCurrency" name="currencyList">
 			<option value="" disabled selected> Select your actual currency  </option>
 		</select>
-		<input type="number">
+		<input type="number" name="inputValor">
 		</label>
 		<br><br><br>
 		<label> To currency value
-		<select id="inputToCurrency" name="currencyList">
+		<select id="inputToCurrency" name="currencyToList">
 			<option value="" disabled selected> Select your desired currency  </option>
 		</select>
 		</label>
