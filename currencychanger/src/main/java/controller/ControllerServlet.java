@@ -1,10 +1,11 @@
 package controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.util.ArrayList;
 
+import model.CurrencyHeader;
+import model.CurrencyHeader.*;
 import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -28,8 +29,10 @@ public class ControllerServlet extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String urlServlet = request.getServletPath();
-		PrintWriter pw = response.getWriter();
-		pw.println("Hello");
+		ArrayList<String> currenciesList = new ArrayList<String>();
+		currenciesList = CurrencyHeader.getCurrencies();
+		request.setAttribute("currencyList", currenciesList);
+		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}
 
 	/**
