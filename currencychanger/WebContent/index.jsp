@@ -482,7 +482,7 @@
 		<label>
 		 <input type="submit">
 		</label>
-		<h2>${result}</h2>
+		<h2>Resultado: ${result}</h2>
 		</form>
 		<br><br>
 		<label>

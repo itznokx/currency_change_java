@@ -7,6 +7,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import model.CurrencyHeader;
 
 public class ControllerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -36,7 +37,10 @@ public class ControllerServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		request.setAttribute("result", request.getParameter("selectCurrency"));
+		String resultFinal = CurrencyHeader.currencyConverter(request.getParameter("selectCurrency"), 
+				 						 Double.parseDouble(request.getParameter("inputCurrency")), 
+				 						 request.getParameter("selectToCurrency"));
+		request.setAttribute("result", resultFinal);
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}
 
