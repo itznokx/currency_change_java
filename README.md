@@ -8,7 +8,7 @@ don't know what is a servlet, I recommend You to see this link: [Servlet](https:
 
 In MVC architecture, the servlet has the `"Controller Role"`. Based on this, the servlet file is in [currencychanger/src/main/java/controller](https://github.com/itznokx/currency_change_java/tree/main/currencychanger/src/main/java/controller) directory.
 
-Talking about the `Model`, [CurrencyHeader.java](https://github.com/itznokx/currency_change_java/blob/main/src/main/java/model/CurrencyHeader.java) file has the most important functions to make the data entered by the user calculated correctely.
+Talking about the `Model`, [CurrencyHeader.java](https://github.com/itznokx/currency_change_java/blob/main/currencychanger/src/main/java/model/CurrencyHeader.java) file has the most important functions to make the data entered by the user calculated correctely.
 
 The `View` is basically the [index.jsp](https://github.com/itznokx/currency_change_java/blob/main/currencychanger/WebContent/index.jsp) file
 ### How to use the API
