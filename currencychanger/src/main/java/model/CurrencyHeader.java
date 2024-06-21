@@ -33,9 +33,9 @@ public class CurrencyHeader {
 		}
 		else {
 			// CurrencyFreaks json modedl is USD based -> amount convert to usd and then convert to desired currency :)
-			Double exchangeValor = Double.parseDouble(jsonRates.getString(actualCurrency))*
-								   Double.parseDouble(amountToConvert)*
-								   Double.parseDouble(jsonRates.getString(desiredCurrency));
+			Double exchangeValor = 	Double.parseDouble(amountToConvert)/
+						Double.parseDouble(jsonRates.getString(actualCurrency))*
+						Double.parseDouble(jsonRates.getString(desiredCurrency));
 			return String.valueOf(exchangeValor);
 		}
 	}
