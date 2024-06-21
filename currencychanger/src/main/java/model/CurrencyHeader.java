@@ -1,36 +1,59 @@
 package model;
 
+import java.io.IOException;
+import java.net.URL;
+import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Currency;
-import java.util.Set;
+import java.util.Locale;
 
-import javax.money.Monetary;
-import javax.money.MonetaryAmount;
-import javax.money.convert.CurrencyConversion;
-import javax.money.convert.ExchangeRateProvider;
-import javax.money.convert.MonetaryConversions;
+import org.apache.tomcat.jakartaee.commons.io.IOUtils;
+import org.json.JSONObject;
 
 public class CurrencyHeader {
-	public static String currencyConverter(String actualCurrency, Double amountToConvert, String desiredCurrency) {
-		MonetaryAmount currencyActualMoney = Monetary.getDefaultAmountFactory().setCurrency(actualCurrency)
-				.setNumber(amountToConvert).create();
-		ExchangeRateProvider rateProvider = MonetaryConversions.getExchangeRateProvider("ECB");
-		CurrencyConversion conversion = rateProvider.getCurrencyConversion(desiredCurrency);
-		MonetaryAmount convertedValor = currencyActualMoney.with(conversion);
-		return (convertedValor.toString());
+	static String urlJsonFile = "https://api.currencyfreaks.com/v2.0/rates/latest?apikey=YOUR_API_KEY_HERE";
+	public static String currencyConverter(	String actualCurrency, 
+											String amountToConvert, 
+											String desiredCurrency) throws IOException {
+		
+		// Get URL type from urlJsonFile
+		URL jsonURL = new URL (urlJsonFile);
+		// Transform json file "downloaded" from urlJsonFile. see: https://currencyfreaks.com/
+		String jsonString = IOUtils.toString(jsonURL,Charset.forName("UTF-8"));
+		//Transform string json file to JSONObject (org.json api) 
+		JSONObject jsonRates = new JSONObject(jsonString);
+		//Get rates map from JSONObject (this works based on currencyfreaks json model)
+		jsonRates = jsonRates.getJSONObject("rates");
+		//UGLY CODE SORRY
+		if (actualCurrency == "" || actualCurrency == "null" || actualCurrency == "placeholder" ||
+			desiredCurrency == "" || desiredCurrency == "null" || desiredCurrency == "placeholder" ||
+			amountToConvert == "" || amountToConvert == null) {
+			return "Invalid Operation";
+		}
+		else {
+			// CurrencyFreaks json modedl is USD based -> amount convert to usd and then convert to desired currency :)
+			Double exchangeValor = Double.parseDouble(jsonRates.getString(actualCurrency))*
+								   Double.parseDouble(amountToConvert)*
+								   Double.parseDouble(jsonRates.getString(desiredCurrency));
+			return String.valueOf(exchangeValor);
+		}
 	}
-
+	
 	public static ArrayList<String> getCurrencies() {
-
-		Set<Currency> allCurrencies = Currency.getAvailableCurrencies();
+		Locale[] locales = Locale.getAvailableLocales();
 		ArrayList<String> sortedCurrencies = new ArrayList<String>();
-		try {
-			for (Currency iter : allCurrencies) {
-				sortedCurrencies.add(iter.getCurrencyCode());
+		for (Locale l:locales) {
+			try {
+				Currency c = Currency.getInstance(l);
+				if (c!=null) {
+					String currencyCode = c.getCurrencyCode();
+					if (sortedCurrencies.contains(currencyCode) == false)
+						sortedCurrencies.add(currencyCode);
+				}
+			}catch(Exception e) {
+				
 			}
-		} catch (Exception e) {
-			System.out.println(e.toString());
 		}
 		Collections.sort(sortedCurrencies);
 		return sortedCurrencies;

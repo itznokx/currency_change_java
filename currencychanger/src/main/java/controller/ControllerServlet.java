@@ -1,7 +1,7 @@
 package controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.util.ArrayList;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
@@ -10,6 +10,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import model.CurrencyHeader;
 
 public class ControllerServlet extends HttpServlet {
+	ArrayList<String> currencies;
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -17,6 +18,7 @@ public class ControllerServlet extends HttpServlet {
 	 */
 	public ControllerServlet() {
 		super();
+		this.currencies = CurrencyHeader.getCurrencies();
 		// TODO Auto-generated constructor stub
 	}
 
@@ -37,10 +39,11 @@ public class ControllerServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String resultFinal = CurrencyHeader.currencyConverter(request.getParameter("selectCurrency"), 
-				 						 Double.parseDouble(request.getParameter("inputCurrency")), 
-				 						 request.getParameter("selectToCurrency"));
-		request.setAttribute("result", resultFinal);
+		request.setAttribute("currency",this.currencies);
+		request.setAttribute("result", CurrencyHeader.currencyConverter(request.getParameter("selectCurrency"),
+																		request.getParameter("inputCurrency"),
+																		request.getParameter("selectToCurrency")));
+		request.setAttribute("test", request.getParameter("selectCurrency"));
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}
 
